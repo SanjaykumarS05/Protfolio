@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: #e5e7eb;
+    line-height: 1.7;
+    scroll-behavior: smooth;
+}
+
+#progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: #38bdf8;
+    width: 0%;
+    z-index: 100;
+    transition: width 0.2s ease;
+}
+
+.hero {
+    text-align: center;
+    padding: 90px 20px;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 6px rgba(56,189,248,0.4);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 30px;
+    margin: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(56,189,248,0.3);
+}
+
+.primary {
+    background: #38bdf8;
+    color: #020617;
+}
+
+.secondary {
+    border: 2px solid #38bdf8;
+    color: #38bdf8;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(2,6,23,0.8);
+    backdrop-filter: blur(10px);
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+nav a {
+    color: #e5e7eb;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+nav a.active {
+    color: #38bdf8;
+}
+
+.section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+h2 {
+    color: #38bdf8;
+    margin-bottom: 20px;
+    display: inline-block;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background: #38bdf8;
+    transition: width 0.4s ease;
+}
+
+h2:hover::after {
+    width: 100%;
+}
+
+/* Experience Cards */
+.card, .project {
+    background: rgba(30, 41, 59, 0.7);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.card:hover, .project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(56,189,248,0.4);
+    background: rgba(30,41,59,0.85);
+}
+
+/* Skill Bars */
+.skill {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.skill span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.bar {
+    background: #1e293b;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    height: 12px;
+    cursor: pointer;
+}
+
+.bar div {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+    transition: width 0.6s ease;
+}
+
+.bar div::after {
+    content: attr(data-width) "%";
+    position: absolute;
+    right: 10px;
+    top: -25px;
+    font-size: 0.85rem;
+    color: #38bdf8;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateY(5px);
+}
+
+.bar:hover div::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tooltip for skill bars */
+.skill-tooltip {
+    position: fixed;       
+    pointer-events: none;  
+    background: #38bdf8;
+    color: #020617;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transform: translate(-50%, -150%) scale(0);
+    white-space: nowrap;
+    z-index: 999;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0;
+}
+
+/* Experience List */
+.experience-list {
+    margin-left: 20px;   
+    margin-right: 50px;  
+    margin-top:10px; 
+    padding-left: 20px;   
+    list-style-type: disc; 
+}
+
+.experience-list li {
+    margin-bottom: 8px; 
+}
+
+/* Grid for projects */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+/* Fade in animation */
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+}
+
+.tagline {
+    margin-top: 10px;
+    opacity: 0.9;
+    font-size: 1.05rem;
+}
+footer {
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 20px;
+    background: rgba(2,6,23,0.9);
+    border-top: 2px solid #38bdf8;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center;
+    gap: 15px;           
+}
+
+.footer-container p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+}
+
+.social-icons a {
+    color: #38bdf8;   
+    margin: 0 8px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+    color: #0ea5e9;
+}
+/* Tooltip for skill bars */
+.skill-tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: #ffffff;       /* white background */
+    color: #020617;            /* dark text */
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transform: translate(-50%, -150%);
+    white-space: nowrap;
+    display: none;             /* hidden by default */
+    z-index: 999;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0;
+}
+
